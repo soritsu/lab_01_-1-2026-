@@ -15,24 +15,13 @@ class SPACESHIP_API Aenemigo : public AActor
 public:	
 	// Sets default values for this actor's properties
 	Aenemigo();
-	float VelocidadMovimiento = 100.0f;
-
-	FVector WorldLimitesMin = FVector(-1000, -1000, 0);
-	FVector WorldLimitesMax = FVector(1000, 1000, 0);
+	
 public:
-	TArray<FVector> PuntosRuta;
+	TArray<FVector> ruta;
+	int indiceRuta;
 
-	int32 IndicePuntoRutaActual = 0;
-
-	FVector PosicionInicial;
-	float Tolerancia = 50.0f;
-
-	float TiempoAcumulado = 0.0f;
-
-public:
-	bool bMovimientoAutonomo = false;
-
-	FVector PosicionDestinoGameMode;
+	float speed;
+	
 
 protected:
 	// Called when the game starts or when spawned

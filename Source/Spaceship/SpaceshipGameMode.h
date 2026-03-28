@@ -13,6 +13,9 @@ class ASpaceshipGameMode : public AGameModeBase
 
 public:
 	ASpaceshipGameMode();
+
+protected:
+	virtual void BeginPlay() override;
 };
 
 

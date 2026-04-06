@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -9,14 +7,15 @@
 UCLASS(MinimalAPI)
 class ASpaceshipGameMode : public AGameModeBase
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	ASpaceshipGameMode();
+    ASpaceshipGameMode();
 
 protected:
-	virtual void BeginPlay() override;
+    virtual void BeginPlay() override;
+
+private:
+    TArray<AActor*> naves;
+    TArray<AActor*> muros;
 };
-
-
-

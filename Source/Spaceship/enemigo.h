@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -7,41 +5,32 @@
 #include "enemigo.generated.h"
 
 UCLASS()
-
 class SPACESHIP_API Aenemigo : public AActor
 {
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	Aenemigo();
-	
-public:
-	TArray<FVector> ruta;
-	int indiceRuta;
+    GENERATED_BODY()
 
-	float speed;
-	
+public:
+    Aenemigo();
+    virtual void Tick(float DeltaTime) override;
+
+    // Getters
+    float GetSpeed() const { return speed; }
+    int GetIndiceRuta() const { return indiceRuta; }
+
+    // Setters
+    void SetSpeed(float newSpeed) { speed = newSpeed; }
+
+    virtual void CargarRuta();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-	
+    virtual void BeginPlay() override;
+    void Mover(float DeltaTime);
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+    TArray<FVector> ruta;
+    int indiceRuta;
+    float speed;
 
-	void Mover(float DeltaTime);
-
-	virtual void CargarRuta();
-
-
-private:
-
-
-	UPROPERTY(VisibleAnywhere)
-
-	UStaticMeshComponent* meshEnemy;
-
+public:
+    UPROPERTY(VisibleAnywhere)
+    UStaticMeshComponent* meshEnemy;
 };

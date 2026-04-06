@@ -15,8 +15,7 @@ AMuroParpadeo::AMuroParpadeo()
     }
 
     meshMuro->SetWorldScale3D(FVector(4.0f, 0.5f, 2.0f));
-    //agregar colision
-     meshMuro->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+    
 
 }
 

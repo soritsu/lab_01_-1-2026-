@@ -21,19 +21,19 @@ void ASpaceshipGameMode::BeginPlay()
         Aenemigo::StaticClass(),
         FVector(0.0f, -500.0f, 160.0f),
         FRotator::ZeroRotator);
-    naves.Add(enemigo);
+    enemigos.Add(enemigo);
 
     AActor* alien = GetWorld()->SpawnActor<AAlien>(
         AAlien::StaticClass(),
         FVector(0.0f, -500.0f, 160.0f),
         FRotator::ZeroRotator);
-    naves.Add(alien);
+    enemigos.Add(alien);
 
     AActor* meteorito = GetWorld()->SpawnActor<AMeteorito>(
         AMeteorito::StaticClass(),
-        FVector(500.0f, -500.0f, 800.0f),
+        FVector(500.0f, -500.0f, 1000.0f),
         FRotator::ZeroRotator);
-    naves.Add(meteorito);
+    enemigos.Add(meteorito);
 
     // ---- MUROS ----
     for (int i = 0; i <= 3; i++) {

@@ -12,6 +12,7 @@ Aenemigo::Aenemigo()
 
 	meshEnemy = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshEnemy"));
     meshEnemy->SetSimulatePhysics(false);
+	
 	RootComponent = meshEnemy;
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshEnemyAsset(TEXT("/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube"));
 	if (MeshEnemyAsset.Succeeded())
@@ -51,7 +52,7 @@ void Aenemigo::Mover(float DeltaTime) {
 	
 	FVector pocionActual = GetActorLocation();
 	FVector destino = ruta[indiceRuta];
-
+	// InterpConstantTo interpola entre dos puntos a una velocidad constante, sin importar la distancia entre ellos
 	FVector nuevapocion = FMath::VInterpConstantTo(
 		pocionActual, 
 		destino, 

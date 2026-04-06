@@ -7,7 +7,7 @@ AMuro::AMuro()
 
     meshMuro = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshMuro"));
     RootComponent = meshMuro;
-
+    
     static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(
         TEXT("/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube"));
     if (MeshAsset.Succeeded())

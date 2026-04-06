@@ -2,7 +2,13 @@
 
 AAlien::AAlien()
 {
-	
+	// Cargar malla cono
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(
+		TEXT("/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone"));
+    if (MeshAsset.Succeeded())
+    {
+        meshEnemy->SetStaticMesh(MeshAsset.Object);
+    }
     SetSpeed(800.0f);
 
 }

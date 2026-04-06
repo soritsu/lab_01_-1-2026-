@@ -31,6 +31,6 @@ protected:
     float speed;
 
 public:
-    UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere)
     UStaticMeshComponent* meshEnemy;
 };

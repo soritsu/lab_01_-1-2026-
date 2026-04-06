@@ -2,9 +2,16 @@
 
 AMeteorito::AMeteorito()
 {
-  
+	
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(
+		TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
+    
+    if (MeshAsset.Succeeded())
+    {
+        meshEnemy->SetStaticMesh(MeshAsset.Object);
+	}
     SetSpeed(400.0f);
-    aceleracion = 150.0f;
+    aceleracion = 50.0f;
 }
 
 void AMeteorito::CargarRuta()
@@ -12,7 +19,7 @@ void AMeteorito::CargarRuta()
     FVector inicio = GetActorLocation();
 
     ruta.Add(inicio);
-    ruta.Add(inicio + FVector(0, 0, -2000.0f));
+    ruta.Add(inicio + FVector(0, 0, -1000.0f));
 }
 
 void AMeteorito::Tick(float DeltaTime)

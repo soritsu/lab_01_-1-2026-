@@ -11,11 +11,20 @@ class ASpaceshipGameMode : public AGameModeBase
 
 public:
     ASpaceshipGameMode();
+    float tiempoAcumulado;
+    float intervalo;
+    int indicemuro;
+    int numero ;
+    
+    
 
 protected:
     virtual void BeginPlay() override;
-
-private:
+    virtual void Tick(float DeltaTime) override;
     TArray<AActor*> enemigos;
+    UPROPERTY()
     TArray<AActor*> muros;
+  
+
+    
 };

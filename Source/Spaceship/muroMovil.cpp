@@ -23,7 +23,7 @@ void AMuroMovil::BeginPlay()
 }
 void AMuroMovil::EfectoEspecial(float DeltaTime)
 {
-	FVector destino = yendo ? puntoB : puntoA;// Si yendo es true, el destino es puntoB, si es false, el destino es puntoA
+	FVector destino = yendo ? puntoB : puntoA;
     FVector nuevaPos = FMath::VInterpConstantTo(
         GetActorLocation(), destino, DeltaTime, velocidad);
     SetActorLocation(nuevaPos);

@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "enemigo.h"
 #include "Components/StaticMeshComponent.h"
@@ -52,7 +50,7 @@ void Aenemigo::Mover(float DeltaTime) {
 	
 	FVector pocionActual = GetActorLocation();
 	FVector destino = ruta[indiceRuta];
-	// InterpConstantTo interpola entre dos puntos a una velocidad constante, sin importar la distancia entre ellos
+	
 	FVector nuevapocion = FMath::VInterpConstantTo(
 		pocionActual, 
 		destino, 

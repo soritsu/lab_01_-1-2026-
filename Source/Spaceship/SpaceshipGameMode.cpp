@@ -9,17 +9,52 @@
 
 ASpaceshipGameMode::ASpaceshipGameMode()
 {
+    PrimaryActorTick.bCanEverTick = true;
     DefaultPawnClass = ASpaceshipPawn::StaticClass();
+    tiempoAcumulado = 0.0f;
+    intervalo = 2.0f;
+    indicemuro = 0;
+    numero = 0;
+}
+void ASpaceshipGameMode::Tick(float DeltaTime) {
+    Super::Tick(DeltaTime);
+
+    tiempoAcumulado += DeltaTime;
+
+    if (tiempoAcumulado >= intervalo)
+    {
+        tiempoAcumulado = 0.0f;
+
+        if (muros.Num() > 0 && indicemuro < muros.Num() && muros[indicemuro]) {
+
+            FVector spawnPos(
+                FMath::RandRange(-1000.0f, 1000.0f),
+                FMath::RandRange(-1000.0f, 1000.0f),
+                FMath::RandRange(0.0f, 500.0f)
+            );
+
+            muros[indicemuro]->SetActorLocation(spawnPos);
+
+            indicemuro++;
+            if (indicemuro >= muros.Num()) {
+                indicemuro = 0;
+            }
+            numero = indicemuro;
+            UE_LOG(LogTemp, Log, TEXT("Indice actual: %d"), numero);
+        }
+    }
+    
+
 }
 
 void ASpaceshipGameMode::BeginPlay()
 {
     Super::BeginPlay();
 
-    // ---- NAVES ----
+    // ---- ENEMIGOS ----
     AActor* enemigo = GetWorld()->SpawnActor<Aenemigo>(
         Aenemigo::StaticClass(),
-        FVector(0.0f, -500.0f, 160.0f),
+        FVector(100.0f, -500.0f, 160.0f),
         FRotator::ZeroRotator);
     enemigos.Add(enemigo);
 
@@ -136,4 +171,8 @@ void ASpaceshipGameMode::BeginPlay()
     {
         muros.Add(muroParpadeo);
 	}
+   
+
 }
+
+
